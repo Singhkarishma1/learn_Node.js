@@ -7,6 +7,26 @@ const PORT=3000;
 //Middleware-plugins
 app.use(express.urlencoded({extended:false}));
 
+// app.use((req,res,next)=>{
+//     console.log('Hello from the middleware 1');
+//     req.myUserName='Karishma.dev';
+//     // return res.json({message:"Hello from the middleware 1"});
+//     next();
+// });
+app.use((req,res,next)=>{
+   fs.appendFile("logs.txt",
+    `${Date.now()} :${req.ip} ${req.method} : ${req.path}\n `,
+    (err,data)=>{
+    next();
+    }
+);
+});
+// app.use((req,res,next)=>{
+//     console.log("Hello from the middleware 2",req.myUserName);
+// // res.end("hey");
+// next();
+// });
+
 //routes
 
 app.get("/users",(req,res)=>{
