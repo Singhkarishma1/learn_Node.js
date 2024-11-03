@@ -39,7 +39,9 @@ app.get("/users",(req,res)=>{
 });
 // REST API
 app.get('/api/users',(req,res)=>{
-    res.json(users);
+    // res.setHeader("myName","Karishma");
+    console.log(req.headers);
+   return res.json(users);
 });
 
 app.get('/api/users/:id',(req,res)=>{

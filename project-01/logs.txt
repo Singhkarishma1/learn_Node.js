@@ -4,4 +4,9 @@
  1730459453344 : POST : /api/users
  1730459472763 : POST : /api/users/1004
  1730459533343 :::1 POST : /api/users/1004
+ 1730626570972 :::1 POST : /api/users
+ 1730626639686 :::1 POST : /api/users
+ 1730626650179 :::1 GET : /api/users
+ 1730626927803 :::1 GET : /api/users
+ 1730627094317 :::1 GET : /api/users
  
