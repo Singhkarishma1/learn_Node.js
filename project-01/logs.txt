@@ -9,4 +9,25 @@
  1730626650179 :::1 GET : /api/users
  1730626927803 :::1 GET : /api/users
  1730627094317 :::1 GET : /api/users
+ 1730698467369 :::1 POST : /api/users
+ 1730698488796 :::1 POST : /api/users
+ 1730698586008 :::1 POST : /api/users
+ 1730698608403 :::1 POST : /api/users
+ 1730698679206 :::1 GET : /api/users
+ 1730698704355 :::1 POST : /api/users
+ 1730698728198 :::1 POST : /api/users
+ 1730698750324 :::1 GET : /api/users
+ 1730698756676 :::1 POST : /api/users
+ 1730698833178 :::1 POST : /api/users
+ 1730698940411 :::1 POST : /api/users
+ 1730699083941 :::1 POST : /api/users
+ 1730699228112 :::1 POST : /api/users
+ 1730699251412 :::1 POST : /api/users
+ 1730699326489 :::1 POST : /api/users
+ 1730699342027 :::1 POST : /api/users
+ 1730699750390 :::1 POST : /api/users
+ 1730700004132 :::1 POST : /api/users
+ 1730700131979 :::1 POST : /api/userss
+ 1730700153605 :::1 GET : /api/users/20000
+ 1730700168622 :::1 GET : /api/users/20000
  

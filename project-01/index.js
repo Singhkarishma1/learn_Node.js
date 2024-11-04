@@ -21,6 +21,7 @@ app.use((req,res,next)=>{
     }
 );
 });
+
 // app.use((req,res,next)=>{
 //     console.log("Hello from the middleware 2",req.myUserName);
 // // res.end("hey");
@@ -44,28 +45,29 @@ app.get('/api/users',(req,res)=>{
    return res.json(users);
 });
 
-app.get('/api/users/:id',(req,res)=>{
+// app.get('/api/users/:id',(req,res)=>{
 
-    const id=Number(req.params.id);
-    const user=users.find((user)=>user.id===id);
-    if(user){
-        res.json(user);
-    }else{
-        res.status(404).send("User not found");
-    }
-});
+//     const id=Number(req.params.id);
+//     const user=users.find((user)=>user.id===id);
+//     if(user){
+//         res.json(user);
+//     }else{
+//         res.status(404).send("User not found");
+//     }
+// });
 
-app.post('/api/users',(req,res)=>{
-    //TODO: create a new user
-    const body=req.body;
-    // console.log("Body",body);
-    users.push({...body,id:users.length});
-    fs.writeFileSync("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{
-      return res.json({status:"Success"});  
-    });
+// app.post('/api/users',(req,res)=>{
+//     //TODO: create a new user
+//     const body=req.body;
+//     // console.log("Body",body);
+//     users.push({...body,id:users.length+1});
+//     fs.writeFileSync("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{
+//     //   return res.json({status:"Success"}); 
+//     return res.status(201).json({status:"Success",id:users.length}); 
+//     });
 
   
-});
+// });
 
 // app.patch('/api/users/:id',(req,res)=>{ 
 //     //TODO: update a user
@@ -94,7 +96,16 @@ app.route('/api/users/:id')
     //TODO: delete a user with id
     return res.json({status:"pending"});
 })
-
+app.post('/api/users',(req,res)=>{  
+    const body=req.body;
+    if(!body || !body.first_name || !body.last_name || !body.email || !body.gender || !body.job_title){
+        return res.status(400).json({status:"Failed",message:"Please provide first_name and last_name"});
+    }
+    users.push({...body,id:users.length+1});
+    fs.writeFileSync("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{ 
+        return res.status(201).json({status:"Success",id:users.length});
+    });
+});
 
 app.listen(PORT,()=>{
     console.log(`Server is running on PORT ${PORT}`);
